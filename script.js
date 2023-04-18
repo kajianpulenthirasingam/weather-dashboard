@@ -5,20 +5,20 @@ var currentWeatherContainerEl = document.querySelector("#current-weather-contain
 var futureWeatherContainerEl = document.querySelector("#future-weather-container");
 var searchHistoryListEl = document.querySelector("#search-history-list");
 
-// Set API key and base URL for OpenWeatherMap API
+// Set API key 
 var apiKey = "aa8b1fb7acbe25c7994fefd91f38c82c";
 var baseUrl = "https://api.openweathermap.org/data/2.5/";
 
 // Create array to store search history
 let searchHistory = [];
 
-// Retrieve search history from local storage, if available
+// Retrieve search history from local storage
 if (localStorage.getItem("searchHistory")) {
   searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
   renderSearchHistory();
 }
 
-// Add event listener to search button
+// Search button
 searchBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
   var city = cityInputEl.value.trim();
@@ -27,7 +27,7 @@ searchBtnEl.addEventListener("click", function (event) {
   }
 });
 
-// Add event listener to search history list
+// Search history list
 searchHistoryListEl.addEventListener("click", function (event) {
   if (event.target.tagName === "LI") {
     var city = event.target.textContent;
